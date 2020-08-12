@@ -17,6 +17,7 @@ function signOut() {
     console.log('User signed out.');
   });
 }
+
 //autenticacion google
 
 
