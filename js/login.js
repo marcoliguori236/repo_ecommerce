@@ -2,6 +2,7 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
+/*
 //autenticacion google
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
@@ -11,7 +12,7 @@ function onSignIn(googleUser) {
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
 //autenticacion google
-
+*/
 
 document.addEventListener("DOMContentLoaded", function (e) {
 
