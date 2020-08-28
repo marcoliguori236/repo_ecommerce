@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     let inputPassword = document.getElementById("inputPassword");
     let camposCompletos = true;
 
-    //Esto no se si es necesario
     if (inputEmail.value === '') {
       inputEmail.classList.add("invalid");
       camposCompletos = false;
@@ -33,16 +32,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
       inputPassword.classList.add("invalid");
       camposCompletos = false;
     }
-    //Esto no se si es necesario
-
-
     
     if (camposCompletos) {
 
       localStorage.setItem('User-Logged', JSON.stringify({ email: inputEmail.value }))
       window.location = 'login.html';
-
-    }
+    }else{
+      alert("Datos incompletos, revisa los campos")
+  }
 
   });
 

@@ -55,11 +55,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
     user.innerText = user.innerText + 'Usuario logueado: ' + userLogged.email;
     infoUser.style = "display: inline-block"
   }
-
+  /*
   document.getElementById('salir').addEventListener("click", function () {
     localStorage.removeItem("User-Logged");
     window.location = 'index.html';
 
   })
+  */
 
 });
