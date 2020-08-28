@@ -139,3 +139,8 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+#info-user{
+  position:relative; 
+  left:350px; 
+}
