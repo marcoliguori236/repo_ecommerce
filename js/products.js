@@ -42,8 +42,14 @@ function sortProducts(criteria, array) {
     return result;
 }
 
+function verProducto() {
+    //localStorage.setItem('product', JSON.stringify({ productName: name }));
+    window.location = 'product-info.html';
+}
+
 
 function showProductsList(array) {
+
 
     let htmlContentToAppend = "";
     for (let i = 0; i < array.length; i++) {
@@ -56,7 +62,7 @@ function showProductsList(array) {
 
             //Desafiate 2
             if (buscar == undefined || product.name.toLowerCase().indexOf(buscar) != -1) {
-            //Desafiate 2    
+                //Desafiate 2    
                 htmlContentToAppend += `
                 <div class="list-group-item list-group-item-action">
                     <div class="row">
@@ -69,13 +75,17 @@ function showProductsList(array) {
                                 <h4>`+ product.name + ' - ' + product.currency + '  ' + product.cost + `</h4>
                              <p>`+ product.description + `</p>
                          </div>    
-                             <small class="text-muted">` + product.soldCount + ' vendidos' + ` </small>
+                             <small class="text-muted">` + product.soldCount + ' vendidos' + `</small>
                           </div>
 
                       </div>
                    </div>
                </div>
               `
+                //Entrega 3
+                htmlContentToAppend += '<button class="btn btn-light btn-lg btn-block" onclick="verProducto()">Ver Producto</button><br></br>';
+                //quité un style float right que puso Daniel en la biblioteca
+                //quité el parametro name de la funcion verProducto porque saco localStorage
             }
 
         }
@@ -109,7 +119,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
             showProductsList(productsArray);
         }
 
-        //filtros eventListener
         document.getElementById("sortByPriceAsc").addEventListener("click", function () {
             sortAndShowProducts(ORDER_ASC_BY_PRICE);
         });
@@ -175,4 +184,3 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 });
 
-//filtros eventListener
