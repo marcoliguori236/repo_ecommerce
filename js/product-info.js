@@ -1,7 +1,6 @@
 //Entrega 3
 var product = {};
 var commentsArray = [];
-const now = new Date();
 
 /*function showImagesGallery(array) {
 
@@ -152,15 +151,24 @@ document.addEventListener("DOMContentLoaded", function (e) {
             showProduct(product, commentsArray);
         }
     }); 
+
     //Desafiate 3
+    let userLogged = localStorage.getItem('User-Logged');
+    if (userLogged) {
+        document.getElementById("newCommentContent").style = "display: inline-block"
+    }
+  
     document.getElementById("enviarComm").addEventListener("click", function() {
+        let now = new Date();
+
+        let auxDateTime = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`;
 
         let newComment = {
 
             score : parseInt(document.getElementById('newCal').value),
             description : document.getElementById('newComm').value,
             user : JSON.parse(localStorage.getItem('User-Logged')).email,
-            dateTime : "2020-02-25 18:03:52"
+            dateTime : auxDateTime
         };
 
         commentsArray.push(newComment);
