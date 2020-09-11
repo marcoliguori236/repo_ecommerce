@@ -100,8 +100,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     document.getElementById("enviarComm").addEventListener("click", function () {
         let now = new Date();
-
         let auxDateTime = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+
+        //Formateo la fecha acorde al JSON: PRODUCT_INFO_COMMENTS_URL 
+        if (now.getMonth() < 10 && now.getDate() < 10){
+            auxDateTime = `${now.getFullYear()}-0${now.getMonth() + 1}-0${now.getDate()}`;
+        }else if(now.getDate() < 10) {
+            auxDateTime = `${now.getFullYear()}-${now.getMonth() + 1}-0${now.getDate()}`;
+        }else if(now.getMonth() < 10) {
+            auxDateTime = `${now.getFullYear()}-0${now.getMonth() + 1}-${now.getDate()}`;
+        
+        }
 
         let stars = document.getElementsByName('rating');
         let selected = "";
