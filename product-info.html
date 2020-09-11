@@ -13,6 +13,34 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <!--estilos de la puntuacion con estrellas-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <style>
+    .star-rating {
+      direction: rtl;
+      display: inline-block;
+      padding: 20px
+    }
+
+    .star-rating input[type=radio] {
+      display: none
+    }
+
+    .star-rating label {
+      color: rgb(133, 142, 192);
+      font-size: 50px;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .star-rating label:hover,
+    .star-rating label:hover~label,
+    .star-rating input[type=radio]:checked~label {
+      color: #ffbf00
+    }
+  </style>
+
+
 </head>
 
 <body>
@@ -80,28 +108,52 @@
     </dd>
     <!--Entrega 3 - parte 2-->
 
-    
-    
-      <!--Entrega 3 - parte 3-->
-      <div id="newCommentContent" style="display: none;">
-        <dt>¡Deja tu reseña de este producto para nosotros y otros compradores!</dt>
-        <textarea id="newComm" rows="8" cols="60"></textarea>
-        <dt>Calificalo:</dt>
 
-        <select id="newCal">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
 
-        <br><br>
-        <button class="btn btn-primary btn-lg" id="enviarComm">Enviar</button>
+    <!--Entrega 3 - parte 3-->
+    <div id="newCommentContent" style="display: none;">
+      <dt>¡Deja tu reseña de este producto para nosotros y otros compradores!</dt>
+      <textarea id="newComm" rows="8" cols="60"></textarea>
+
+      <dt>Calificalo:</dt>
+      <div class="star-rating">
+        <input id="star-5" type="radio" name="rating" value="5" />
+        <label for="star-5" title="5 stars">
+          <i class="active fa fa-star"></i>
+        </label>
+
+        <input id="star-4" type="radio" name="rating" value="4" />
+        <label for="star-4" title="4 stars">
+          <i class="active fa fa-star"></i>
+        </label>
+
+        <input id="star-3" type="radio" name="rating" value="3" />
+        <label for="star-3" title="3 stars">
+          <i class="active fa fa-star"></i>
+        </label>
+
+        <input id="star-2" type="radio" name="rating" value="2" />
+        <label for="star-2" title="2 stars">
+          <i class="active fa fa-star"></i>
+        </label>
+
+        <input id="star-1" type="radio" name="rating" value="1" checked />
+        <label for="star-1" title="1 star">
+          <i class="active fa fa-star"></i>
+        </label>
+
       </div>
 
+      <button class="btn btn-primary btn-lg" id="enviarComm">Enviar</button>
+
+    </div>
+
+    <div id="anonComment" style="display: none;">
+      <dt>Ingresa <a href="index.html">aquí</a> para comentar sobre este producto</dt>
+    </div>
+
   </div>
-  
+
 
   <br>
 

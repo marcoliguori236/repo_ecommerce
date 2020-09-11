@@ -2,51 +2,6 @@
 var product = {};
 var commentsArray = [];
 
-/*function showImagesGallery(array) {
-
-    let htmlContentToAppend = "";
-
-    for (let i = 0; i < array.length; i++) {
-        let imageSrc = array[i];
-
-        htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
-        </div>
-        `
-
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
-    }
-}
-
-/*function showComments(array) {
-
-
-    let comentarios = "";
-
-    for (let i = 0; i < array.length; i++) {
-        let comment = array[i];
-
-        comentarios += `
-                <div class="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                            <div class="mb-1">
-                                <h4>`+ comment.user + ' - ' + product.currency + '  ' + product.cost + `</h4>
-                             <p>`+ product.description + `</p>
-                         </div>    
-                             <small class="text-muted">` + product.soldCount + ' vendidos' + `</small>
-                          </div>
-
-                      </div>
-                   </div>
-               </div>
-              `
-        document.getElementById("cat-list-container").innerHTML = comentarios;
-    }
-}
-*/
 
 function showProduct(product, arrayComments) {
     let imagesArray = product.images;
@@ -78,15 +33,15 @@ function showProduct(product, arrayComments) {
 
     }
 
-    for (let comment in arrayComments){
+    for (let comment in arrayComments) {
         auxComment = arrayComments[comment];
         let score = "";
 
-        for(let i=1; i<=auxComment.score; i++){
+        for (let i = 1; i <= auxComment.score; i++) {
             score += `<span class="fa fa-star checked"></span>`;
         }
 
-        for(let i=auxComment.score + 1; i<=5; i++){
+        for (let i = auxComment.score + 1; i <= 5; i++) {
             score += `<span class="fa fa-star"></span>`;
         }
 
@@ -105,11 +60,10 @@ function showProduct(product, arrayComments) {
                </div>
               `
         document.getElementById("cat-list-container").innerHTML = comentarios;
-        
-    
+
+
     }
 
-    
 }
 
 
@@ -123,22 +77,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             product = resultObj.data;
 
-            /*
-            let productNameHTML = document.getElementById("productName");
-            let productDescriptionHTML = document.getElementById("productDescription");
-            let productCostHTML = document.getElementById("productCost");
-            let productCountHTML = document.getElementById("soldCount");
-
-
-            productNameHTML.innerHTML = product.name;
-            productDescriptionHTML.innerHTML = product.description;
-            productCostHTML.innerHTML = product.cost + " " + product.currency;
-            productCountHTML.innerHTML = product.soldCount + " " + "unidades";
-
-            showImagesGallery(product.images);
-            */
-           //showProduct(product);
-
         }
     });
 
@@ -150,25 +88,36 @@ document.addEventListener("DOMContentLoaded", function (e) {
             //Muestro las imagenes en forma de galería
             showProduct(product, commentsArray);
         }
-    }); 
+    });
 
     //Desafiate 3
     let userLogged = localStorage.getItem('User-Logged');
     if (userLogged) {
         document.getElementById("newCommentContent").style = "display: inline-block"
+    } else{
+        document.getElementById("anonComment").style = "display: inline-block"
     }
-  
-    document.getElementById("enviarComm").addEventListener("click", function() {
+
+    document.getElementById("enviarComm").addEventListener("click", function () {
         let now = new Date();
 
-        let auxDateTime = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`;
+        let auxDateTime = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+
+        let stars = document.getElementsByName('rating');
+        let selected = "";
+        for (let input of stars) {
+            if (input.checked) {
+                selected = input.value;
+            }
+        }
+
 
         let newComment = {
 
-            score : parseInt(document.getElementById('newCal').value),
-            description : document.getElementById('newComm').value,
-            user : JSON.parse(localStorage.getItem('User-Logged')).email,
-            dateTime : auxDateTime
+            score: parseInt(selected),
+            description: document.getElementById('newComm').value,
+            user: JSON.parse(localStorage.getItem('User-Logged')).email,
+            dateTime: auxDateTime
         };
 
         commentsArray.push(newComment);
@@ -176,4 +125,3 @@ document.addEventListener("DOMContentLoaded", function (e) {
     })
 
 });
-
