@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     } else{
         document.getElementById("anonComment").style = "display: inline-block"
     }
-    /*
+    
     //Desafiate 3
     document.getElementById("enviarComm").addEventListener("click", function () {
         let now = new Date();
@@ -133,5 +133,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
         commentsArray.push(newComment);
         showProduct(product, commentsArray);
     })
-    */
+    
 });
