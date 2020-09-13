@@ -90,14 +90,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
 
-    //Desafiate 3
+    //Pauta grupal
     let userLogged = localStorage.getItem('User-Logged');
     if (userLogged) {
         document.getElementById("newCommentContent").style = "display: inline-block"
     } else{
         document.getElementById("anonComment").style = "display: inline-block"
     }
-
+    /*
+    //Desafiate 3
     document.getElementById("enviarComm").addEventListener("click", function () {
         let now = new Date();
         let auxDateTime = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
@@ -132,5 +133,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
         commentsArray.push(newComment);
         showProduct(product, commentsArray);
     })
-
+    */
 });
