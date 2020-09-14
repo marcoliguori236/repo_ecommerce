@@ -84,8 +84,6 @@ function showProductsList(array) {
               `
                 //Entrega 3
                 htmlContentToAppend += '<button class="btn btn-light btn-lg btn-block" onclick="verProducto()">Ver Producto</button><br></br>';
-                //quité un style float right que puso Daniel en la biblioteca
-                //quité el parametro name de la funcion verProducto porque saco localStorage
             }
 
         }
