@@ -6,7 +6,7 @@ var commentsArray = [];
 function showProduct(product, arrayComments) {
     let imagesArray = product.images;
     let comentarios = "";
-    let imgs = "";
+    //let imgs = "";
     let productNameHTML = document.getElementById("productName");
     let productDescriptionHTML = document.getElementById("productDescription");
     let productCostHTML = document.getElementById("productCost");
@@ -17,21 +17,22 @@ function showProduct(product, arrayComments) {
     productCostHTML.innerHTML = product.cost + " " + product.currency;
     productCountHTML.innerHTML = product.soldCount + " " + "unidades";
 
-    for (let i = 0; i < imagesArray.length; i++) {
+    /*
+    for (let i = 1; i < imagesArray.length; i++) {
         let imageSrc = imagesArray[i];
 
         imgs += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
+        <div class="carousel-item active">
+            <img src=`+imagesArray[0]+` class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src=`+imageSrc` class="d-block w-100" alt="...">
         </div>
         `
 
-        document.getElementById("productImagesGallery").innerHTML = imgs;
-
-
+        document.getElementById("productImagesGallery").innerHTML += imgs;
     }
+    */
 
     for (let comment in arrayComments) {
         auxComment = arrayComments[comment];
@@ -92,25 +93,31 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     //Pauta grupal
     let userLogged = localStorage.getItem('User-Logged');
+    let ingresar = document.getElementById('ingresar');
+
     if (userLogged) {
         document.getElementById("newCommentContent").style = "display: inline-block"
-    } else{
+    } else {
         document.getElementById("anonComment").style = "display: inline-block"
+        ingresar.style = "display: inline-block";
+        ingresar.innerText = "Ingrese aquí";
+        
+
     }
-    
+
     //Desafiate 3
     document.getElementById("enviarComm").addEventListener("click", function () {
         let now = new Date();
         let auxDateTime = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
 
         //Formateo la fecha acorde al JSON: PRODUCT_INFO_COMMENTS_URL 
-        if (now.getMonth() < 10 && now.getDate() < 10){
+        if (now.getMonth() < 10 && now.getDate() < 10) {
             auxDateTime = `${now.getFullYear()}-0${now.getMonth() + 1}-0${now.getDate()}`;
-        }else if(now.getDate() < 10) {
+        } else if (now.getDate() < 10) {
             auxDateTime = `${now.getFullYear()}-${now.getMonth() + 1}-0${now.getDate()}`;
-        }else if(now.getMonth() < 10) {
+        } else if (now.getMonth() < 10) {
             auxDateTime = `${now.getFullYear()}-0${now.getMonth() + 1}-${now.getDate()}`;
-        
+
         }
 
         let stars = document.getElementsByName('rating');
@@ -133,5 +140,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
         commentsArray.push(newComment);
         showProduct(product, commentsArray);
     })
-    
+
 });
