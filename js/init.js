@@ -47,17 +47,31 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
   // 23/08/2020
   let userLogged = localStorage.getItem('User-Logged');
-  let infoUser = document.getElementById('info-user');
-  let user = document.getElementById('user');
+  let ingresar = document.getElementById('ingresar');
+  let desplegable = document.getElementById('desplegable');
 
   if (userLogged) {
     userLogged = JSON.parse(userLogged);
-    user.innerText += userLogged.email;
-    infoUser.style = "display: block";
-  }
+    desplegable.innerHTML += `<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">` + userLogged.email + `
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="cart.html">Ver carrito</a>
+      <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" id="salir">Cerrar sesión</a>
+    </div>
+  </div>
+</div>`
 
-  document.getElementById("salir").addEventListener("click", function () {
-    localStorage.clear();
-  });
+    document.getElementById("salir").addEventListener("click", function () {
+      localStorage.clear();
+      window.location.href = 'index.html';
+    });
+
+  } else {
+    ingresar.innerHTML += `<button class="btn btn-primary btn-lg" onclick="window.location.href='index.html'">Ingresar</button>`
+  }
 
 });

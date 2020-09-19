@@ -51,25 +51,11 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <!--Boton para ingresar, solo se muestra si no hay usuario ingresado-->
-      <button class="btn btn-primary btn-lg" id="ingresar" onclick="window.location.href='index.html'" style="display: none;"></button>
-      
+      <div id="ingresar"></div>
       <!--cuadro de usuario-->
-      <div class="dropdown" id="info-user" style="display: none;">
-        <button class="btn btn-primary dropdown-toggle" type="button" id="user" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="cart.html">Ver carrito</a>
-          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" id="salir" href="index.html">Salir</a>
-        </div>
-      </div>
+      <div id="desplegable"></div>
     </div>
-
   </nav>
-
-
   <!--Entrega 3-->
   <div class="container mt-5">
     <h3 id="productName"></h3>
@@ -119,11 +105,7 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
-        
-        <!--
-        <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
-        </div>
-        -->
+
       </dd>
     </dl>
     <!--Entrega 3 - parte 2-->
@@ -137,6 +119,7 @@
       </div>
     </dd>
     <!--Entrega 3 - parte 2-->
+    
 
 
 
@@ -182,13 +165,26 @@
       <dt>Ingresa <a href="index.html">aquí</a> para comentar sobre este producto</dt>
     </div>
 
+    <br><br><br>
+ 
+    <!--Entrega 4 - Pauta individual-->
+    <dt>Productos Relacionados</dt>
+    <dd>
+      <div class="container">
+        <div class="row">
+          <div class="list-group" id="relatedProds">
+          </div>
+        </div>
+      </div>
+    </dd>
+
   </div>
-
-
+  
   <br>
 
   <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
-  </div>
+
+  
 
   <footer class="text-muted">
     <div class="container">

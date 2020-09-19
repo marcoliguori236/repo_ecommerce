@@ -4,9 +4,8 @@ var commentsArray = [];
 
 
 function showProduct(product, arrayComments) {
-    let imagesArray = product.images;
+    //let imagesArray = product.images;
     let comentarios = "";
-    //let imgs = "";
     let productNameHTML = document.getElementById("productName");
     let productDescriptionHTML = document.getElementById("productDescription");
     let productCostHTML = document.getElementById("productCost");
@@ -17,22 +16,6 @@ function showProduct(product, arrayComments) {
     productCostHTML.innerHTML = product.cost + " " + product.currency;
     productCountHTML.innerHTML = product.soldCount + " " + "unidades";
 
-    /*
-    for (let i = 1; i < imagesArray.length; i++) {
-        let imageSrc = imagesArray[i];
-
-        imgs += `
-        <div class="carousel-item active">
-            <img src=`+imagesArray[0]+` class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src=`+imageSrc` class="d-block w-100" alt="...">
-        </div>
-        `
-
-        document.getElementById("productImagesGallery").innerHTML += imgs;
-    }
-    */
 
     for (let comment in arrayComments) {
         auxComment = arrayComments[comment];
@@ -67,6 +50,37 @@ function showProduct(product, arrayComments) {
 
 }
 
+function showRelatedProducts(productsArray, relatedProdsArray) {
+    let contenido = `<hr>`;
+
+    relatedProdsArray.forEach(function (i) {
+        contenido += `
+        <div class="list-group-item list-group-item-action">
+            <div class="row">
+                <div class="col-3">
+                    <img src="` + productsArray[i].imgSrc + `" class="img-thumbnail">
+                </div>
+            <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                    <div class="mb-1">
+                        <h4>`+ productsArray[i].name + ' - ' + productsArray[i].currency + '  ' + productsArray[i].cost + `</h4>
+                     <p>`+ productsArray[i].description + `</p>
+                 </div>    
+                     <small class="text-muted">` + productsArray[i].soldCount + ' vendidos' + `</small>
+                  </div>
+
+              </div>
+           </div>
+       </div>
+      `
+
+
+    });
+
+    document.getElementById("relatedProds").innerHTML = contenido;
+}
+
+
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -91,18 +105,25 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
 
-    //Pauta grupal
+    //Entrega 4 - Pauta individual    
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            productsArray = resultObj.data;
+
+            showRelatedProducts(productsArray, product.relatedProducts);
+        }
+
+
+    })
+
+
+    //Pauta grupal 4
     let userLogged = localStorage.getItem('User-Logged');
-    let ingresar = document.getElementById('ingresar');
 
     if (userLogged) {
         document.getElementById("newCommentContent").style = "display: inline-block"
     } else {
         document.getElementById("anonComment").style = "display: inline-block"
-        ingresar.style = "display: inline-block";
-        ingresar.innerText = "Ingrese aquí";
-        
-
     }
 
     //Desafiate 3
