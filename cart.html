@@ -9,8 +9,10 @@
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
 
+
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <style>
     .bd-placeholder-img {
@@ -26,6 +28,7 @@
       .bd-placeholder-img-lg {
         font-size: 3.5rem;
       }
+
     }
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -45,14 +48,125 @@
       <div id="desplegable"></div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <!--Producto en carro-->
+  <div class="container mb-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> </th>
+                <th scope="col">Producto/s</th>
+                <th scope="col">Disponibilidad</th>
+                <th scope="col" class="text-center">Cantidad</th>
+                <th scope="col" class="text-right">Precio</th>
+                <th scope="col" class="text-center">Precio unitario</th>
+                <th></th>
+                <th></th>
+                
+              </tr>
+            </thead>
+            <tbody id="listado">
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Sub-Total</td>
+                <td class="text-right" id="total"></td>
+              </tr>
+              <tr>
+                <td><input type="radio" id="standard" name="envio" value="5" required>
+                  <label for="standard">Envío standard (12-15 días, 5% del subtotal)</label></td>
+                <td><input type="radio" id="express" name="envio" value="7" required checked>
+                  <label for="express">Envío express (5-8 días, 7% del subtotal)</label></td>
+                <td><input type="radio" id="premium" name="envio" value="15" required>
+                  <label for="premium">Envío premium (2-5 días, 15% del subtotal)</label></td>
+                <td></td>  
+                <td></td>
+                <td>Envio</td>
+                <td class="text-right" id="envio"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><strong>Total</strong></td>
+                <td class="text-right" id="totalEnvio"></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+      <div class="col mb-2">
+        <div class="row">
+          <div class="col-sm-12  col-md-6">
+            <form action="categories.html">
+              <button class="btn btn-block btn-light">Continuar comprando</button>
+            </form>
+          </div>
+          <div class="col-sm-12 col-md-6 text-right">
+            <button class="btn btn-lg btn-block btn-success text-uppercase" data-toggle="modal"
+              data-target="#pagarModal">Finalizar compra</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <!--Modal para finalizar compra-->
+  <div class="modal fade" id="pagarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ingrese sus datos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form  id="needs-validation" novalidate action="login.html">
+            <div>
+              <h4>Datos del comprador:</h4>
+              <input type="text" class="form-control" placeholder="Nombre" required>
+              <div class="invalid-feedback">Por favor, ingresa tu nombre</div>
+              <br>
+              <input type="text" class="form-control" placeholder="Apellido" required>
+              <div class="invalid-feedback">Por favor, ingresa tu apellido</div>
+              <br>
+            </div>
+            <div>
+              <h4>Datos para el envío:</h4>     
+              <input type="text" class="form-control" placeholder="País" required>
+              <div class="invalid-feedback">Por favor, ingrese un país válido</div><br>
+              <input type="text" class="form-control" placeholder="Calle" required>
+              <div class="invalid-feedback">Por favor, ingrese una dirección válida</div><br>
+              <input type="text" class="form-control" placeholder="Número de vivienda" required>
+              <div class="invalid-feedback">Por favor, ingrese una dirección válida</div><br>
+              <input type="text" class="form-control" placeholder="Esquina" required>
+              <div class="invalid-feedback">Por favor, ingrese una dirección válida</div><br>
+              <h4>Comentarios:</h4>
+              <textarea class="form-control" id="message-text"></textarea>
+            </div>
+          
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Enviar y Finalizar</button>
+          </form>  
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
