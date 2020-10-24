@@ -16,6 +16,19 @@ function onSignIn(googleUser) {
 
 document.addEventListener("DOMContentLoaded", function (e) {
 
+  let loginNeed = localStorage.getItem('login-need');
+
+  if (loginNeed) {
+    loginNeed = JSON.parse(loginNeed);
+    document.getElementById("alert").innerHTML = `
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <span id="msg">${loginNeed.msg}</span>
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+    </div>
+    
+    `
+  }
+
   //entrega 2
   document.getElementById("submitBtn").addEventListener("click", function (e) {
 
@@ -36,7 +49,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
     if (camposCompletos) {
 
       localStorage.setItem('User-Logged', JSON.stringify({ email: inputEmail.value }))
-      window.location = 'login.html';
+      
+      if (loginNeed) {
+        localStorage.removeItem("login-need");
+        window.location = loginNeed.from;
+
+      }else{
+        window.location = 'login.html';
+      }
+      
     }else{
       alert("Datos incompletos, revisa los campos")
   }

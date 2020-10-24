@@ -37,92 +37,118 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="login.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <div id="ingresar"></div>
-      <!--cuadro de usuario-->
-      <div id="desplegable"></div>
-    </div>
-  </nav>
-  <!--Producto en carro-->
-  <div class="container mb-4">
-    <div class="row">
-      <div class="col-12">
-        <div class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col"> </th>
-                <th scope="col">Producto/s</th>
-                <th scope="col">Disponibilidad</th>
-                <th scope="col" class="text-center">Cantidad</th>
-                <th scope="col" class="text-right">Precio</th>
-                <th scope="col" class="text-center">Precio unitario</th>
-                <th></th>
-                <th></th>
-                
-              </tr>
-            </thead>
-            <tbody id="listado">
-            </tbody>
-            <tfoot>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Sub-Total</td>
-                <td class="text-right" id="total"></td>
-              </tr>
-              <tr>
-                <td><input type="radio" id="standard" name="envio" value="5" required>
-                  <label for="standard">Envío standard (12-15 días, 5% del subtotal)</label></td>
-                <td><input type="radio" id="express" name="envio" value="7" required checked>
-                  <label for="express">Envío express (5-8 días, 7% del subtotal)</label></td>
-                <td><input type="radio" id="premium" name="envio" value="15" required>
-                  <label for="premium">Envío premium (2-5 días, 15% del subtotal)</label></td>
-                <td></td>  
-                <td></td>
-                <td>Envio</td>
-                <td class="text-right" id="envio"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><strong>Total</strong></td>
-                <td class="text-right" id="totalEnvio"></td>
-              </tr>
-            </tfoot>
-          </table>
+  <div class="container-fluid">
+    <div class="col-md-12 col-sm-12">
+      <nav class="site-header sticky-top py-1 bg-dark">
+        <div class="container d-flex flex-column flex-md-row flex-sm-row justify-content-between">
+          <a class="py-2 d-sm-inline-block d-md-inline-block" href="login.html">Inicio</a>
+          <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+          <a class="py-2 d-sm-inline-block d-md-inline-block" href="products.html">Productos</a>
+          <a class="py-2 d-sm-inline-block d-md-inline-block" href="sell.html">Vender</a>
+          <div id="ingresar"></div>
+          <!--cuadro de usuario-->
+          <div id="desplegable"></div>
         </div>
-      </div>
-      <div class="col mb-2">
-        <div class="row">
-          <div class="col-sm-12  col-md-6">
-            <form action="categories.html">
-              <button class="btn btn-block btn-light">Continuar comprando</button>
-            </form>
-          </div>
-          <div class="col-sm-12 col-md-6 text-right">
-            <button class="btn btn-lg btn-block btn-success text-uppercase" data-toggle="modal"
-              data-target="#pagarModal">Finalizar compra</button>
-          </div>
-        </div>
-      </div>
+      </nav>
     </div>
   </div>
 
+
+  <!--Producto en carro-->
+  <form id="needs-validation" novalidate>
+    <div id="carroVacio">
+      <div class="container mb-4">
+        <div class="row">
+          <div class="col-12">
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col"> </th>
+                    <th scope="col">Producto/s</th>
+                    <th scope="col">Disponibilidad</th>
+                    <th scope="col" class="text-center">Cantidad</th>
+                    <th scope="col" class="text-right">Precio</th>
+                    <th scope="col" class="text-center">Precio unitario</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="listado">
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Sub-Total</td>
+                    <td class="text-right" id="total"></td>
+                  </tr>
+                  <tr>
+                    <td><input type="radio" id="standard" name="envio" value="5" required>
+                      <label for="standard">Envío standard (12-15 días, 5% del subtotal)</label></td>
+                    <td><input type="radio" id="express" name="envio" value="7" required checked>
+                      <label for="express">Envío express (5-8 días, 7% del subtotal)</label></td>
+                    <td><input type="radio" id="premium" name="envio" value="15" required>
+                      <label for="premium">Envío premium (2-5 días, 15% del subtotal)</label></td>
+                    <td></td>
+                    <td></td>
+                    <td>Envio</td>
+                    <td class="text-right" id="envio"></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><strong>Total</strong></td>
+                    <td class="text-right" id="totalEnvio"></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!--datos del comprador-->
+            <div>
+              <h4>Datos del comprador:</h4>
+              <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+              <div class="invalid-feedback">Por favor, ingresa tu nombre</div>
+              <br>
+              <input type="text" class="form-control" id="apellido" placeholder="Apellido" required>
+              <div class="invalid-feedback">Por favor, ingresa tu apellido</div>
+              <br>
+              <input type="text" class="form-control" id="pais" placeholder="País" required>
+              <div class="invalid-feedback">Por favor, ingrese un país válido</div><br>
+              <input type="text" class="form-control" id="calle" placeholder="Calle" required>
+              <div class="invalid-feedback">Por favor, ingrese una dirección válida</div><br>
+              <input type="text" class="form-control" id="nroVivienda" placeholder="Número de vivienda" required>
+              <div class="invalid-feedback">Por favor, ingrese una dirección válida</div><br>
+              <input type="text" class="form-control" id="esquina" placeholder="Esquina" required>
+              <div class="invalid-feedback">Por favor, ingrese una dirección válida</div><br>
+            </div>
+            <!--datos del comprador-->
+          </div>
+        </div>
+        <div class="col mb-2">
+          <div class="row">
+            <div class="col-sm-12 col-md-6 text-right">
+              <button class="btn btn-block btn-primary" id="btnPago" data-toggle="modal" data-target="#pagarModal">Forma de
+                pago</button><br>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-block btn-success">Ingresar compra</button>
+        </div>
+      </div>
+    </div>
+    <div id="pagar"></div>
+  </form>
+  <!------------------------------------------------------------------------------------------------------------------------------------>
+
   <!--Modal para finalizar compra-->
-  <div class="modal fade" id="pagarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+  <div class="modal fade" data-backdrop="static" id="pagarModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -132,54 +158,52 @@
           </button>
         </div>
         <div class="modal-body">
-          <form  id="needs-validation" novalidate action="login.html">
-            <div>
-              <h4>Datos del comprador:</h4>
-              <input type="text" class="form-control" placeholder="Nombre" required>
-              <div class="invalid-feedback">Por favor, ingresa tu nombre</div>
-              <br>
-              <input type="text" class="form-control" placeholder="Apellido" required>
-              <div class="invalid-feedback">Por favor, ingresa tu apellido</div>
-              <br>
+          <h4>Seleccionar forma de pago</h4>
+          <input id="tarjeta" name="formaPago" type="radio" value="1">
+          <label for="tarjeta">Tarjeta de credito</label><br>
+          <input id="bancaria" name="formaPago" type="radio" value="2" checked="">
+          <label for="bancaria">Transferencia bancaria</label><br>
+          <div>
+            <div id="datosTarjeta" class="d-none">
+              <input class="form-control" type="number" id="numTarjeta" placeholder="Nro de la tarjeta" required>
+              <div class="invalid-feedback">Por favor, ingrese un número de tarjeta válido</div><br>
+              <input class="form-control" type="text" id="titularTarjeta" placeholder="Nombre del titular" required>
+              <div class="invalid-feedback">Por favor, ingrese el nombre del titular</div><br>
+              <input class="form-control" type="number" id="segTarjeta" placeholder="Código de seguridad" required>
+              <div class="invalid-feedback">Por favor, ingrese el código de 3 digitos de su tarjeta</div><br>
             </div>
-            <div>
-              <h4>Datos para el envío:</h4>     
-              <input type="text" class="form-control" placeholder="País" required>
-              <div class="invalid-feedback">Por favor, ingrese un país válido</div><br>
-              <input type="text" class="form-control" placeholder="Calle" required>
-              <div class="invalid-feedback">Por favor, ingrese una dirección válida</div><br>
-              <input type="text" class="form-control" placeholder="Número de vivienda" required>
-              <div class="invalid-feedback">Por favor, ingrese una dirección válida</div><br>
-              <input type="text" class="form-control" placeholder="Esquina" required>
-              <div class="invalid-feedback">Por favor, ingrese una dirección válida</div><br>
-              <h4>Comentarios:</h4>
-              <textarea class="form-control" id="message-text"></textarea>
+            <div id="datosBanco">
+              <select class="form-control" id="banco">
+                <option>BROU</option>
+                <option>Santander</option>
+                <option>Itaú</option>
+                <option>OCA</option>
+              </select><br>
+              <input class="form-control" type="number" id="cuenta" placeholder="Nro de cuenta">
+              <div class="invalid-feedback">Por favor, ingrese su número de cuenta bancaria</div><br>
             </div>
-          
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="submit" class="btn btn-primary">Enviar y Finalizar</button>
-          </form>  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-block btn-success" data-dismiss="modal">Listo</button>
+          </div>
         </div>
-      </form>
       </div>
     </div>
-  </div>
 
 
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
-  </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
 </body>
 
 </html>
