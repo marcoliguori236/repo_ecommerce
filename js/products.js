@@ -64,26 +64,29 @@ function showProductsList(array) {
             if (buscar == undefined || product.name.toLowerCase().indexOf(buscar) != -1) {
                 //Desafiate 2    
                 htmlContentToAppend += `
-                <div class="list-group-item list-group-item-action">
-                    <div class="row">
-                        <div class="col-3">
-                            <img src="` + product.imgSrc + `" class="img-thumbnail">
-                        </div>
-                    <div class="col">
-                            <div class="d-flex w-100 justify-content-between">
-                            <div class="mb-1">
-                                <h4>`+ product.name + ' - ' + product.currency + '  ' + product.cost + `</h4>
-                             <p>`+ product.description + `</p>
-                         </div>    
-                             <small class="text-muted">` + product.soldCount + ' vendidos' + `</small>
-                          </div>
+                <div class="col-lg-6 col-sm-12">
+                    <div class="card my-3">
+                        <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <img src="` + product.imgSrc + `" class="img-thumbnail">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <div class="mb-1">
+                                                <h4>`+ product.name + ' - ' + product.currency + '  ' + product.cost + `</h4>
+                                                <p>`+ product.description + `</p>
+                                            </div>    
+                                             <small class="text-muted">` + product.soldCount + ' vendidos' + `</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            <button class="btn btn-light btn-lg btn-block" onclick="verProducto()">Ver Producto</button><br></br>
+                        </div>   
+                    </div>     
+                </div>
 
-                      </div>
-                   </div>
-               </div>
               `
-                //Entrega 3
-                htmlContentToAppend += '<button class="btn btn-light btn-lg btn-block" onclick="verProducto()">Ver Producto</button><br></br>';
             }
 
         }

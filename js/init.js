@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 </div>`
 
     document.getElementById("salir").addEventListener("click", function () {
-      localStorage.clear();
+      localStorage.removeItem("User-Logged");
       window.location.href = 'index.html';
     });
 

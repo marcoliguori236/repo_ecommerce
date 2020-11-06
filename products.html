@@ -36,7 +36,7 @@
     <!--Filtros-->
     <div class="container">
       <div class="row">
-        <div class="col text-right">
+        <div class="col text-right d-none d-lg-block">
           <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
             <label class="btn btn-light" id="sortByCount">
               <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Cant.
@@ -58,7 +58,7 @@
       </div>
       <div class="row justify-content-end">
         <div class="col-md-6"></div>
-        <div class="col-md-6 col-sm-12 mb-1 container">
+        <div class="col-md-6 col-sm-12 mb-1 container d-none d-lg-block">
           <div class="row container p-0 m-0">
             <div class="col">
               <p class="font-weight-normal text-right my-2">Prec.</p>
@@ -83,7 +83,7 @@
       <!--buscador por palabra desafiate 2-->
       <div class="row justify-content-end">
         <div class="col-md-6"></div>
-        <div class="col-md-6 col-sm-12 mb-1 container">
+        <div class="col-md-12 col-lg-6 col-sm-12 mb-1 container">
           <div class="row container p-0 m-0">
             <div class="col">
               <p class="font-weight-normal text-right my-2">Buscar por nombre: </p>
@@ -103,10 +103,10 @@
 
       <div class="container">
         <div class="row">
-          <div class="list-group" id="cat-list-container">
-          </div>
+          <div class="row" id="cat-list-container">
         </div>
       </div>
+    </div>
 
       <div id="spinner-wrapper">
         <div class="lds-ring">

@@ -36,7 +36,7 @@
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+      <a class="py-2 d-none d-md-inline-block" href="login.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
@@ -45,26 +45,41 @@
       <div id="desplegable"></div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+
+    <div class="container" id="perfil">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-center" id="img_container">
+                    <!-- <img src="img/img_perfil.png" id="imgPerfil" class="rounded" alt="imagen_perfil"><br><br> -->
+                    <img src="img/img_perfil.png" id="imgPerfil" class="rounded" alt="imagen_perfil"><br><br>
+                    <input class="form-control" type="text" id="imgUrl" name="url_img" placeholder="URL de su imagen"><br><br>
+                </div>
+                <div class="row">
+                    <label for="nombre"><strong>Nombre:</strong></label>
+                    <input class="form-control" type="text" id="nombre" name="nombre"><br><br>
+                </div>
+                <div class="row">
+                    <label for="apellido"><strong>Apellido:</strong></label>
+                    <input class="form-control" type="text" id="apellido" name="apellido"><br><br>
+                </div>
+                <div class="row">
+                    <label for="mail"><strong>E-Mail:</strong></label>
+                    <input class="form-control" type="email" id="email" name="email"><br><br>
+                </div>
+                <div class="row">
+                    <label for="edad"><strong>Edad:</strong></label>
+                    <input class="form-control" type="number" id="edad" name="edad"><br><br>
+                </div>
+                <div class="row">
+                    <label for="tel"><strong>Telefono:</strong></label>
+                    <input class="form-control" type="text" id="tel" name="tel"><br><br>
+                </div><br>
+                <button id="guardar" class="btn btn-primary">Guardar cambios</button>
+            </div>
+        </div>
     </div>
-  </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
-  </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
